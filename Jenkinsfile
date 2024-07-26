@@ -3,7 +3,7 @@
 // curl --user "admin:Passw0rd!" -X POST -F "jenkinsfile=Jenkinsfile" https://$JENKINS_URL/pipeline-model-converter/validate
 
 // Image variables
-def buildBarImage = "image-registry.openshift-image-registry.svc:5000/jenkins/ace-buildbar:12.0.4.0-ubuntu"
+def buildBarImage = "image-registry.openshift-image-registry.svc:5000/jenkins/ace-buildbar:12.0.12.4-ubuntu"
 def ocImage = "image-registry.openshift-image-registry.svc:5000/jenkins/oc-deploy:4.10"
 
 // Params for Git Checkout-Stage
@@ -29,7 +29,7 @@ def port = "3443"
 def ibmAceSecretName = "ace-dashboard-dash"
 
 // ACE integration server
-def aceVersion = "12.0.5.0-r4"
+def aceVersion = "12.0.12.4-r4"
 def aceLicense = "L-KSBM-CJ2KWU"
 def replicas = "1"
 
