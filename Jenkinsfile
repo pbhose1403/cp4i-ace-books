@@ -67,7 +67,7 @@ podTemplate(
             envVar(key: 'ACE_LICENSE', value: "${aceLicense}"),
             envVar(key: 'REPLICAS', value: "${replicas}"),
         ]),
-        containerTemplate(name: 'jnlp', image: "jenkins/jnlp-slave:latest", ttyEnabled: true, workingDir: "/home/jenkins-test", envVars: [
+        containerTemplate(name: 'jnlp', image: "jenkins/inbound-agent:jdk11", ttyEnabled: true, workingDir: "/home/jenkins-test", envVars: [
             envVar(key: 'HOME', value: '/home/jenkins-test'),
             envVar(key: 'GIT_DOMAIN', value: "${gitDomain}"),
             envVar(key: 'GIT_REPO', value: "${gitRepo}"),
