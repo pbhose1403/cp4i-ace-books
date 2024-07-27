@@ -7,7 +7,7 @@ def buildBarImage = "image-registry.openshift-image-registry.svc:5000/jenkins-te
 def ocImage = "image-registry.openshift-image-registry.svc:5000/jenkins-test/oc-deploy:latest"
 
 // Params for Git Checkout-Stage
-def gitCp4iDevOpsUtilsRepo = "https://github.com/pbhose1403/cp4i-ace-utils.git"
+def gitCp4iDevOpsUtilsRepo = "https://github.com/pbhose1403/cp4i-devops-utils.git"
 def gitRepo = "https://github.com/pbhose1403/cp4i-ace-books.git"
 def gitDomain = "github.com"
 
