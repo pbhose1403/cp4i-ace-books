@@ -41,14 +41,14 @@ def artifactoryBasePath = "cp4i"
 def artifactoryCredentials = "artifactory_credentials" // defined in Jenkins credentials
 
 podTemplate(
-    serviceAccount: "jenkins",
+    serviceAccount: "jenkins-test",
     containers: [
-        containerTemplate(name: 'ace-buildbar', image: "${buildBarImage}", workingDir: "/home/jenkins", ttyEnabled: true, envVars: [
+        containerTemplate(name: 'ace-buildbar', image: "${buildBarImage}", workingDir: "/home/jenkins-test", ttyEnabled: true, envVars: [
             envVar(key: 'BAR_NAME', value: "${barName}"),
             envVar(key: 'APP_NAME', value: "${appName}"),
             envVar(key: 'PROJECT_DIR', value: "${projectDir}"),
         ]),
-        containerTemplate(name: 'oc-deploy', image: "${ocImage}", workingDir: "/home/jenkins", ttyEnabled: true, envVars: [
+        containerTemplate(name: 'oc-deploy', image: "${ocImage}", workingDir: "/home/jenkins-test", ttyEnabled: true, envVars: [
             envVar(key: 'NAMESPACE', value: "${namespace}"),
             envVar(key: 'APP_NAME', value: "${appName}"),
             envVar(key: 'SERVER_NAME', value: "${serverName}"),
@@ -67,8 +67,8 @@ podTemplate(
             envVar(key: 'ACE_LICENSE', value: "${aceLicense}"),
             envVar(key: 'REPLICAS', value: "${replicas}"),
         ]),
-        containerTemplate(name: 'jnlp', image: "jenkins/jnlp-slave:latest", ttyEnabled: true, workingDir: "/home/jenkins", envVars: [
-            envVar(key: 'HOME', value: '/home/jenkins'),
+        containerTemplate(name: 'jnlp', image: "jenkins-test/jnlp-slave:latest", ttyEnabled: true, workingDir: "/home/jenkins-test", envVars: [
+            envVar(key: 'HOME', value: '/home/jenkins-test'),
             envVar(key: 'GIT_DOMAIN', value: "${gitDomain}"),
             envVar(key: 'GIT_REPO', value: "${gitRepo}"),
             envVar(key: 'PROJECT_DIR', value: "${projectDir}"),
